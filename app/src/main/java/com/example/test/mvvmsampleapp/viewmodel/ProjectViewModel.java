@@ -9,6 +9,7 @@ import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.example.test.mvvmsampleapp.api.Constants;
 import com.example.test.mvvmsampleapp.service.model.Project;
 import com.example.test.mvvmsampleapp.service.repository.ProjectRepository;
 
@@ -41,7 +42,7 @@ public class ProjectViewModel extends AndroidViewModel {
 
             Log.i(TAG,"ProjectViewModel projectID is " + projectID.getValue());
 
-            return projectRepository.getProjectDetails("Google", projectID.getValue());
+            return projectRepository.getProjectDetails(Constants.USER_ID, projectID.getValue());
         });
     }
 

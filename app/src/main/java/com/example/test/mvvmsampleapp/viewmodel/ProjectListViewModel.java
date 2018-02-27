@@ -5,6 +5,7 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
+import com.example.test.mvvmsampleapp.api.Constants;
 import com.example.test.mvvmsampleapp.service.model.Project;
 import com.example.test.mvvmsampleapp.service.repository.ProjectRepository;
 
@@ -20,7 +21,7 @@ public class ProjectListViewModel extends AndroidViewModel {
         super(application);
 
         // If any transformation is needed, this can be simply done by Transformations class ...
-        projectListObservable = projectRepository.getProjectList("Google");
+        projectListObservable = projectRepository.getProjectList(Constants.USER_ID);
     }
 
     /**
