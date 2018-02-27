@@ -63,6 +63,7 @@ public class ProjectListFragment extends LifecycleFragment  implements Injectabl
                 if (projects != null) {
                     binding.setIsLoading(false);
                     projectAdapter.setProjectList(projects);
+                    binding.setProjectsNum(projectAdapter.getItemCount());
                 }
             }
         });
