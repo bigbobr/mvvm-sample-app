@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.test.mvvmsampleapp.R;
+import com.example.test.mvvmsampleapp.api.Constants;
 import com.example.test.mvvmsampleapp.databinding.FragmentProjectListBinding;
 import com.example.test.mvvmsampleapp.di.Injectable;
 import com.example.test.mvvmsampleapp.service.model.Project;
@@ -63,7 +64,10 @@ public class ProjectListFragment extends LifecycleFragment  implements Injectabl
                 if (projects != null) {
                     binding.setIsLoading(false);
                     projectAdapter.setProjectList(projects);
-                    binding.setProjectsNum(projectAdapter.getItemCount());
+                    String s = getString(R.string.github_projects);
+                    String itemCount = String.valueOf(projectAdapter.getItemCount());
+                    String projectsNum = String.format(s, Constants.USER_ID, itemCount);
+                    binding.setProjectsNum(projectsNum);
                 }
             }
         });

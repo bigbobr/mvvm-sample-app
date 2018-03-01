@@ -7,7 +7,7 @@
         <import type="com.example.test.mvvmsampleapp.api.Constants"/>
         
         <variable name="isLoading" type="boolean" />
-        <variable name="projectsNum" type="int" />
+        <variable name="projectsNum" type="String" />
     </data>
 
     <LinearLayout
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:textSize="@dimen/project_header1"
-                android:text="@{String.format(@string/github_projects, Constants.USER_ID, String.valueOf(projectsNum))}"
+                android:text="@{projectsNum}"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
