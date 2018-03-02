@@ -53,14 +53,7 @@ public class ProjectListFragment extends LifecycleFragment  implements Injectabl
         final ProjectListViewModel viewModel = ViewModelProviders.of(this,
                 viewModelFactory).get(ProjectListViewModel.class);
     
-        binding.setPlvm(viewModel);
-    
-        observeViewModel(viewModel);
-    }
-
-    private void observeViewModel(ProjectListViewModel viewModel) {
-        // Update the list when the data changes
-        viewModel.getProjectListObservable().observe(this, new Observer<List<Project>>() {
+        viewModel.setObserver(new Observer<List<Project>>() {
             @Override
             public void onChanged(@Nullable List<Project> projects) {
                 if (projects != null) {
@@ -69,10 +62,15 @@ public class ProjectListFragment extends LifecycleFragment  implements Injectabl
                     String s = getString(R.string.github_projects);
                     String itemCount = String.valueOf(projectAdapter.getItemCount());
                     String projectsNum = String.format(s, Constants.USER_ID, itemCount);
-                    binding.setProjectsNum(projectsNum);
+//                    binding.setProjectsNum(projectsNum);
                 }
             }
         });
+        viewModel.setOwner(this);
+        
+        binding.setPlvm(viewModel);
+        
+        viewModel.observe();
     }
 
     private final ProjectClickCallback projectClickCallback = new ProjectClickCallback() {
