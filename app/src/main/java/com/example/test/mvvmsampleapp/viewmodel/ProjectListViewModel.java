@@ -30,4 +30,19 @@ public class ProjectListViewModel extends AndroidViewModel {
     public LiveData<List<Project>> getProjectListObservable() {
         return projectListObservable;
     }
+    
+//    public void updateUserID(String userID) {
+//        if (!Utils.empty(userID) && !userID.equals(this.userID)) {
+//            this.userID = userID;
+//            projectListObservable = projectRepository.getProjectList(userID);
+//        }
+//    }
+    
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+//        updateUserID(s.toString());
+    }
+    
+//    public String getUserID() {
+//        return this.userID;
+//    }
 }

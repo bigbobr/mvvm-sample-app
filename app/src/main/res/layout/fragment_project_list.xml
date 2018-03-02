@@ -8,6 +8,7 @@
         
         <variable name="isLoading" type="boolean" />
         <variable name="projectsNum" type="String" />
+        <variable name="plvm" type="com.example.test.mvvmsampleapp.viewmodel.ProjectListViewModel"/>
     </data>
 
     <LinearLayout
@@ -31,8 +32,8 @@
             android:background="@color/cardview_light_background"
             android:orientation="vertical"
             app:visibleGone="@{!isLoading}">
-
-            <TextView
+            
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -41,7 +42,8 @@
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:onTextChanged="@{plvm.onTextChanged}"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/project_list"

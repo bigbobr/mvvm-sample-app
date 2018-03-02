@@ -52,7 +52,9 @@ public class ProjectListFragment extends LifecycleFragment  implements Injectabl
 
         final ProjectListViewModel viewModel = ViewModelProviders.of(this,
                 viewModelFactory).get(ProjectListViewModel.class);
-
+    
+        binding.setPlvm(viewModel);
+    
         observeViewModel(viewModel);
     }
 
